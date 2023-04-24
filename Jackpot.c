@@ -7,6 +7,7 @@ void roulette()
 {
     srand(time(NULL));
     int* symbole = malloc(4*sizeof(int)); //machine en mode console
+    //En mode console
     for(int i = 0 ; i < 3 ; i++)
     {
         symbole[i] = rand()%6;

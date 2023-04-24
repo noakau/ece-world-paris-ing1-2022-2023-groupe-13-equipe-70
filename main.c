@@ -39,7 +39,7 @@ int main()
         {
             allegro_message("C'est au tour de %s. Nombre de tickets : %d", joueurs[joueur_en_cours]->nom, joueurs[joueur_en_cours]->ticket);
             joueurs[joueur_en_cours]->ticket -= 1;
-            jeu_en_cours = main_jackpot(joueurs[joueur_en_cours]);
+            jeu_en_cours = main_jackpot(joueurs[joueur_en_cours]); //Jeu du jackpot
             if(joueurs[joueur_en_cours]->ticket == 0)
             {
                 allegro_message("Fin de la partie");
