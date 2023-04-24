@@ -18,7 +18,7 @@ void initialisation()
 
 int main()
 {
-    int nombre_de_joueurs;
+    int nombre_de_joueurs, jeu_en_cours, joueur_en_cours;
     char* nom_du_joueur = malloc(50*sizeof(char));
     initialisation();
     printf("Nombre de joueurs (2 joueurs minimum) : ");
@@ -35,7 +35,19 @@ int main()
     }
     while(!key[KEY_ESC])
     {
-        //
+        for(joueur_en_cours = 0 ; joueur_en_cours < nombre_de_joueurs ; joueur_en_cours++)
+        {
+            allegro_message("C'est au tour de %s. Nombre de tickets : %d", joueurs[joueur_en_cours]->nom, joueurs[joueur_en_cours]->ticket);
+            joueurs[joueur_en_cours]->ticket -= 1;
+            jeu_en_cours = main_jackpot(joueurs[joueur_en_cours]);
+            if(joueurs[joueur_en_cours]->ticket == 0)
+            {
+                allegro_message("Fin de la partie");
+                allegro_exit();
+                exit(0);
+            }
+        }
+        joueur_en_cours = 0;
     }
     allegro_exit();
     return 0;
