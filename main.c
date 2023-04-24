@@ -35,20 +35,24 @@ int main()
     }
     while(!key[KEY_ESC])
     {
-        for(joueur_en_cours = 0 ; joueur_en_cours < nombre_de_joueurs ; joueur_en_cours++)
+        allegro_message("C'est au tour de %s. Nombre de tickets : %d", joueurs[joueur_en_cours]->nom, joueurs[joueur_en_cours]->ticket);
+        joueurs[joueur_en_cours]->ticket -= 1;
+        victoire_roulette = main_jackpot(joueurs[joueur_en_cours]); //Jeu du jackpot
+        printf("Victoire roulette : %d", victoire_roulette);
+        if(joueurs[joueur_en_cours]->ticket == 0)
         {
-            allegro_message("C'est au tour de %s. Nombre de tickets : %d", joueurs[joueur_en_cours]->nom, joueurs[joueur_en_cours]->ticket);
-            joueurs[joueur_en_cours]->ticket -= 1;
-            victoire_roulette = main_jackpot(joueurs[joueur_en_cours]); //Jeu du jackpot
-            printf("Victoire roulette : %d", victoire_roulette);
-            if(joueurs[joueur_en_cours]->ticket == 0)
-            {
-                allegro_message("Fin de la partie");
-                allegro_exit();
-                exit(0);
-            }
+            allegro_message("Fin de la partie");
+            allegro_exit();
+            exit(0);
         }
-        joueur_en_cours = 0;
+        if(joueur_en_cours + 1 == nombre_de_joueurs)
+        {
+            joueur_en_cours = 0;
+        }
+        else
+        {
+            joueur_en_cours++;
+        }
     }
     allegro_exit();
     return 0;
