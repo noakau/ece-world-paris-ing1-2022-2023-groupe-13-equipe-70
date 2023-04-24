@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <allegro.h>
 
-int main(void)
+void initialisation()
 {
     allegro_init(); //initialisation
     install_keyboard(); //clavier
@@ -13,6 +13,11 @@ int main(void)
         allegro_exit();
         exit(EXIT_FAILURE);
     }
+}
+
+int main()
+{
+    initialisation();
     allegro_exit();
     return 0;
 }END_OF_MAIN()
