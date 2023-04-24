@@ -18,7 +18,7 @@ void initialisation()
 
 int main()
 {
-    int nombre_de_joueurs, jeu_en_cours, joueur_en_cours;
+    int nombre_de_joueurs, victoire_roulette, joueur_en_cours;
     char* nom_du_joueur = malloc(50*sizeof(char));
     initialisation();
     printf("Nombre de joueurs (2 joueurs minimum) : ");
@@ -39,7 +39,8 @@ int main()
         {
             allegro_message("C'est au tour de %s. Nombre de tickets : %d", joueurs[joueur_en_cours]->nom, joueurs[joueur_en_cours]->ticket);
             joueurs[joueur_en_cours]->ticket -= 1;
-            jeu_en_cours = main_jackpot(joueurs[joueur_en_cours]); //Jeu du jackpot
+            victoire_roulette = main_jackpot(joueurs[joueur_en_cours]); //Jeu du jackpot
+            printf("Victoire roulette : %d", victoire_roulette);
             if(joueurs[joueur_en_cours]->ticket == 0)
             {
                 allegro_message("Fin de la partie");
