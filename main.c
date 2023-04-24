@@ -18,7 +18,7 @@ void initialisation()
 
 int main()
 {
-    int nombre_de_joueurs, victoire_roulette, joueur_en_cours;
+    int nombre_de_joueurs, victoire_roulette, joueur_en_cours = 0;
     char* nom_du_joueur = malloc(50*sizeof(char));
     initialisation();
     printf("Nombre de joueurs (2 joueurs minimum) : ");
