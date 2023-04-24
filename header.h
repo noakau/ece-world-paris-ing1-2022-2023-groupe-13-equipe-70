@@ -3,8 +3,9 @@
 typedef struct
 {
     int ticket;
-    char nom;
+    char* nom;
 }joueur;
+
 void initialisation();
 int main_jackpot();
 #endif //PROJET_HEADER_H
