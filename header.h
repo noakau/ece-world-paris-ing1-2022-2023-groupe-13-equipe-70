@@ -7,5 +7,6 @@ typedef struct
 }joueur;
 
 void initialisation();
-int main_jackpot();
+int roulette(int* symbole);
+int main_jackpot(joueur* joueur);
 #endif //PROJET_HEADER_H
