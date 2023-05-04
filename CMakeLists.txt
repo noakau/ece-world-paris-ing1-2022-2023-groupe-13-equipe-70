@@ -3,5 +3,5 @@ project(PROJET C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(PROJET main.c Jackpot.c header.h)
+add_executable(PROJET main.c Jackpot.c header.h tir_aux_ballons.c tir_aux_ballons.h)
 target_link_libraries(PROJET -lmingw32 -lalleg44)
